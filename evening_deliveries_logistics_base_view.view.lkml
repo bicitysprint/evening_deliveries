@@ -303,24 +303,25 @@ view: evening_deliveries_logistics_base_view {
   #https://discourse.looker.com/t/discrepancy-when-drilling-into-measures/3464
 
   dimension: notonmanifest {
-    type: number
-    sql: case when ${not_on_manifest_date} is null then 0 else 1 end ;;
-
+    type: yesno
+    sql: ${not_on_manifest_time} is not null ;;
   }
-
-  measure: test {
-    type: sum
-    sql: ${notonmanifest} ;;
-    drill_fields: [detail*]
-
-  }
-
 
   measure: no_of_non_manifestions {
-    type: sum
-    sql: case when ${not_on_manifest_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: notonmanifest
+      value: "yes"
+      }
     drill_fields: [detail*]
   }
+
+
+  #measure: no_of_non_manifestions {
+   # type: sum
+    #sql: case when ${not_on_manifest_date} is null then 0 else 1 end ;;
+    #drill_fields: [detail*]
+  #}
 
   measure: no_of_manifestions {
     type: sum
