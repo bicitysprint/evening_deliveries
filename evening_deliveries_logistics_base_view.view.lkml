@@ -286,6 +286,151 @@ view: evening_deliveries_logistics_base_view {
     sql: ${TABLE}."TRUNK_DELIVERED" ;;
   }
 
+
+  dimension: service_snapshot {
+    type: string
+    sql:
+    case
+    when ${collected_date} is not null then 'collected'
+    --when ${delivered_date} is not null then 'delivered'
+    --when ${collected_date} is null then 'not collected'
+    --when ${delivered_date} is null then 'not delivered'
+    else 'not collected'
+    end;;
+      }
+
+
+  measure: no_of_non_manifestions {
+    type: sum
+    sql: case when ${not_on_manifest_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_manifestions {
+    type: sum
+    sql: case when ${manifested_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_collections {
+    type: sum
+    sql: case when ${collected_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_non_collections {
+    type: sum
+    sql: case when ${collected_date} is null then 1 else 0 end ;;
+  }
+
+  measure: total_collections {
+    type: sum
+    sql: case when ${collected_date} is null then 0 else 1 end + case when ${collected_date} is null then 1 else 0 end ;;
+      }
+
+  measure: no_of_deliveries {
+    type: sum
+    sql: case when ${delivered_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_non_deliveries {
+    type: sum
+    sql: case when ${delivered_date} is null then 1 else 0 end ;;
+  }
+
+  measure: total_deliveries {
+    type: sum
+    sql:case when ${delivered_date} is null then 0 else 1 end + case when ${delivered_date} is null then 1 else 0 end ;;
+      }
+
+
+  measure: no_of_trunk_collections {
+    type: sum
+    sql: case when ${trunk_collected_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_trunk_deliveries {
+    type: sum
+    sql: case when ${trunk_delivered_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_routed {
+    type: sum
+    sql: case when ${routed_date} is null then 0 else 1 end ;;
+  }
+
+
+  measure: no_of_route_scanned {
+    type: sum
+    sql: case when ${route_scanned_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_reconciliations {
+    type: sum
+    sql: case when ${reconciled_date} is null then 0 else 1 end ;;
+  }
+
+
+  measure: no_of_non_reconciliations {
+    type: sum
+    sql: case when ${not_reconciled_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_gecodeds {
+    type: sum
+    sql: case when ${gecoded_date} is null then 0 else 1 end ;;
+  }
+
+
+  measure: no_of_parcel_scans {
+    type: sum
+    sql: case when ${parcel_scan_date} is null then 0 else 1 end ;;
+  }
+
+
+  measure: no_of_send_to_reroutes {
+    type: sum
+    sql: case when ${send_to_reroute_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_del_window_future {
+    type: sum
+    sql: case when ${del_widnow_future_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_no_access {
+    type: sum
+    sql: case when ${no_access_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_incorrect_address {
+    type: sum
+    sql: case when ${incorrect_address_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_held {
+    type: sum
+    sql: case when ${held_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_do_not_deliver {
+    type: sum
+    sql: case when ${do_not_deliver_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_return_to_seller {
+    type: sum
+    sql: case when ${return_to_seller_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_delivery_refused {
+    type: sum
+    sql: case when ${delivery_refused_date} is null then 0 else 1 end ;;
+  }
+
+  measure: no_of_incorrect_cage_scan {
+    type: sum
+    sql: case when ${incorrect_cage_scan_date} is null then 0 else 1 end ;;
+  }
+
+
   measure: count {
     type: count
     drill_fields: [detail*]
