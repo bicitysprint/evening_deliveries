@@ -299,6 +299,20 @@ view: evening_deliveries_logistics_base_view {
       }
 
 
+  dimension: notonmanifest {
+    type: number
+    sql: case when ${not_on_manifest_date} is null then 0 else 1 end ;;
+
+  }
+
+  measure: test {
+    type: sum
+    sql: ${notonmanifest} ;;
+    drill_fields: [detail*]
+
+  }
+
+
   measure: no_of_non_manifestions {
     type: sum
     sql: case when ${not_on_manifest_date} is null then 0 else 1 end ;;
@@ -326,7 +340,6 @@ view: evening_deliveries_logistics_base_view {
   measure: total_collections {
     type: sum
     sql: case when ${collected_date} is null then 0 else 1 end + case when ${collected_date} is null then 1 else 0 end ;;
-    drill_fields: [detail*]
       }
 
   measure: no_of_deliveries {
