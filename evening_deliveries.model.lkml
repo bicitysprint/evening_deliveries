@@ -12,7 +12,8 @@ persist_with: evening_deliveries_default_datagroup
 
 
 explore: evening_deliveries_logistics_base_view {
-
+  fields: [ALL_FIELDS*]
+#,-evening_deliveries_logistics_sc_view.id, -evening_deliveries_logistics_sc_view.tracking_number
   join: evening_deliveries_logistics_sc_view {
     type: left_outer
     relationship: one_to_one
