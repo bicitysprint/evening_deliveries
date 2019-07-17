@@ -299,6 +299,9 @@ view: evening_deliveries_logistics_base_view {
       }
 
 
+
+  #https://discourse.looker.com/t/discrepancy-when-drilling-into-measures/3464
+
   dimension: notonmanifest {
     type: number
     sql: case when ${not_on_manifest_date} is null then 0 else 1 end ;;
