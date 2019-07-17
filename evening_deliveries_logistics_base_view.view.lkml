@@ -14,17 +14,15 @@ view: evening_deliveries_logistics_base_view {
 
   dimension_group: collected {
     type: time
-    timeframes: [
-    date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."COLLECTED_DATE" ;;
   }
 
   dimension_group: created {
     type: time
-    timeframes: [
-    date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."CREATED_AT" ;;
   }
 
@@ -53,25 +51,22 @@ view: evening_deliveries_logistics_base_view {
 
   dimension_group: del_widnow_future {
     type: time
-    timeframes: [
-     date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."DEL_WIDNOW_FUTURE" ;;
   }
 
   dimension_group: delivered {
     type: time
-    timeframes: [
- date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."DELIVERED_DATE" ;;
   }
 
   dimension_group: delivery_refused {
     type: time
-    timeframes: [
-     date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."DELIVERY_REFUSED" ;;
   }
 
@@ -82,9 +77,8 @@ view: evening_deliveries_logistics_base_view {
 
   dimension_group: do_not_deliver {
     type: time
-    timeframes: [
-     date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."DO_NOT_DELIVER" ;;
   }
 
@@ -110,9 +104,8 @@ view: evening_deliveries_logistics_base_view {
 
   dimension_group: gecoded {
     type: time
-    timeframes: [
-   date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."GECODED" ;;
   }
 
@@ -123,25 +116,22 @@ view: evening_deliveries_logistics_base_view {
 
   dimension_group: held {
     type: time
-    timeframes: [
-    date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."HELD" ;;
   }
 
-  dimension_group: incoreect_address {
+  dimension_group: incorrect_address {
     type: time
-    timeframes: [
-    date
-    ]
-    sql: ${TABLE}."INCOREECT_ADDRESS" ;;
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
+    sql: ${TABLE}."INCORRECT_ADDRESS" ;;
   }
 
   dimension_group: incorrect_cage_scan {
     type: time
-    timeframes: [
-   date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."INCORRECT_CAGE_SCAN" ;;
   }
 
@@ -162,33 +152,29 @@ view: evening_deliveries_logistics_base_view {
 
   dimension_group: manifested {
     type: time
-    timeframes: [
-    date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."MANIFESTED" ;;
   }
 
   dimension_group: no_access {
     type: time
-    timeframes: [
-     date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."NO_ACCESS" ;;
   }
 
   dimension_group: not_on_manifest {
     type: time
-    timeframes: [
-   date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."NOT_ON_MANIFEST" ;;
   }
 
   dimension_group: not_reconciled {
     type: time
-    timeframes: [
-     date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."NOT_RECONCILED" ;;
   }
 
@@ -212,9 +198,8 @@ view: evening_deliveries_logistics_base_view {
 
   dimension_group: reconciled {
     type: time
-    timeframes: [
-   date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."RECONCILED" ;;
   }
 
@@ -225,9 +210,8 @@ view: evening_deliveries_logistics_base_view {
 
   dimension_group: return_to_seller {
     type: time
-    timeframes: [
-     date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."RETURN_TO_SELLER" ;;
   }
 
@@ -243,25 +227,22 @@ view: evening_deliveries_logistics_base_view {
 
   dimension_group: route_scanned {
     type: time
-    timeframes: [
-  date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."ROUTE_SCANNED" ;;
   }
 
   dimension_group: routed {
     type: time
-    timeframes: [
-  date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."ROUTED" ;;
   }
 
   dimension_group: send_to_reroute {
     type: time
-    timeframes: [
-    date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."SEND_TO_REROUTE" ;;
   }
 
@@ -293,17 +274,15 @@ view: evening_deliveries_logistics_base_view {
 
   dimension_group: trunk_collected {
     type: time
-    timeframes: [
-     date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."TRUNK_COLLECTED" ;;
   }
 
   dimension_group: trunk_delivered {
     type: time
-    timeframes: [
-    date
-    ]
+    timeframes: [date,time]
+    #convert_tz: yes   # defaults to yes
     sql: ${TABLE}."TRUNK_DELIVERED" ;;
   }
 
