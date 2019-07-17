@@ -15,13 +15,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: collected {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+    date
     ]
     sql: ${TABLE}."COLLECTED_DATE" ;;
   }
@@ -29,13 +23,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: created {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+    date
     ]
     sql: ${TABLE}."CREATED_AT" ;;
   }
@@ -58,13 +46,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: cut_off {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+    time
     ]
     sql: ${TABLE}."CUT_OFF" ;;
   }
@@ -72,13 +54,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: del_widnow_future {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+     date
     ]
     sql: ${TABLE}."DEL_WIDNOW_FUTURE" ;;
   }
@@ -86,13 +62,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: delivered {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+ date
     ]
     sql: ${TABLE}."DELIVERED_DATE" ;;
   }
@@ -100,13 +70,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: delivery_refused {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+     date
     ]
     sql: ${TABLE}."DELIVERY_REFUSED" ;;
   }
@@ -119,13 +83,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: do_not_deliver {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+     date
     ]
     sql: ${TABLE}."DO_NOT_DELIVER" ;;
   }
@@ -153,13 +111,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: gecoded {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+   date
     ]
     sql: ${TABLE}."GECODED" ;;
   }
@@ -172,13 +124,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: held {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+    date
     ]
     sql: ${TABLE}."HELD" ;;
   }
@@ -186,13 +132,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: incoreect_address {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+    date
     ]
     sql: ${TABLE}."INCOREECT_ADDRESS" ;;
   }
@@ -200,13 +140,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: incorrect_cage_scan {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+   date
     ]
     sql: ${TABLE}."INCORRECT_CAGE_SCAN" ;;
   }
@@ -229,13 +163,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: manifested {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+    date
     ]
     sql: ${TABLE}."MANIFESTED" ;;
   }
@@ -243,13 +171,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: no_access {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+     date
     ]
     sql: ${TABLE}."NO_ACCESS" ;;
   }
@@ -257,13 +179,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: not_on_manifest {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+   date
     ]
     sql: ${TABLE}."NOT_ON_MANIFEST" ;;
   }
@@ -271,13 +187,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: not_reconciled {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+     date
     ]
     sql: ${TABLE}."NOT_RECONCILED" ;;
   }
@@ -290,13 +200,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: parcel_scan {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+    date
     ]
     sql: ${TABLE}."PARCEL_SCAN" ;;
   }
@@ -309,13 +213,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: reconciled {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+   date
     ]
     sql: ${TABLE}."RECONCILED" ;;
   }
@@ -328,13 +226,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: return_to_seller {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+     date
     ]
     sql: ${TABLE}."RETURN_TO_SELLER" ;;
   }
@@ -352,13 +244,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: route_scanned {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+  date
     ]
     sql: ${TABLE}."ROUTE_SCANNED" ;;
   }
@@ -366,13 +252,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: routed {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+  date
     ]
     sql: ${TABLE}."ROUTED" ;;
   }
@@ -380,13 +260,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: send_to_reroute {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+    date
     ]
     sql: ${TABLE}."SEND_TO_REROUTE" ;;
   }
@@ -394,13 +268,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: shift_end {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+     time
     ]
     sql: ${TABLE}."SHIFT_END" ;;
   }
@@ -408,13 +276,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: shift_start {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+     time
     ]
     sql: ${TABLE}."SHIFT_START" ;;
   }
@@ -432,13 +294,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: trunk_collected {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+     date
     ]
     sql: ${TABLE}."TRUNK_COLLECTED" ;;
   }
@@ -446,13 +302,7 @@ view: evening_deliveries_logistics_base_view {
   dimension_group: trunk_delivered {
     type: time
     timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
+    date
     ]
     sql: ${TABLE}."TRUNK_DELIVERED" ;;
   }
