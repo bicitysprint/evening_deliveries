@@ -317,159 +317,354 @@ view: evening_deliveries_logistics_base_view {
   }
 
 
-  #measure: no_of_non_manifestions {
-   # type: sum
-    #sql: case when ${not_on_manifest_date} is null then 0 else 1 end ;;
-    #drill_fields: [detail*]
-  #}
+
+  dimension: onmanifest {
+    type: yesno
+    sql: ${manifested_time} is not null ;;
+  }
 
   measure: no_of_manifestions {
-    type: sum
-    sql: case when ${manifested_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: onmanifest
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+  dimension: collections {
+    type: yesno
+    sql: ${collected_time} is not null ;;
   }
 
   measure: no_of_collections {
-    type: sum
-    sql: case when ${collected_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: collections
+      value: "yes"
+    }
     drill_fields: [detail*]
   }
 
+
+  dimension: noncollections {
+    type: yesno
+    sql: ${collected_time} is null ;;
+  }
+
   measure: no_of_non_collections {
-    type: sum
-    sql: case when ${collected_date} is null then 1 else 0 end ;;
+    type: count
+    filters: {
+      field: noncollections
+      value: "yes"
+    }
     drill_fields: [detail*]
   }
+
+
+  dimension: deliveries {
+    type: yesno
+    sql: ${delivered_time} is not null ;;
+  }
+
+  measure: no_of_deliveries {
+    type: count
+    filters: {
+      field: deliveries
+      value: "yes"
+    }
+    drill_fields: [detail*]
+  }
+
+
+
+  dimension: nondeliveries {
+    type: yesno
+    sql: ${delivered_time} is null ;;
+  }
+
+  measure: no_of_non_deliveries {
+    type: count
+    filters: {
+      field: nondeliveries
+      value: "yes"
+    }
+    drill_fields: [detail*]
+  }
+
 
   measure: total_collections {
     type: sum
     sql: case when ${collected_date} is null then 0 else 1 end + case when ${collected_date} is null then 1 else 0 end ;;
-      }
-
-  measure: no_of_deliveries {
-    type: sum
-    sql: case when ${delivered_date} is null then 0 else 1 end ;;
-    drill_fields: [detail*]
-  }
-
-  measure: no_of_non_deliveries {
-    type: sum
-    sql: case when ${delivered_date} is null then 1 else 0 end ;;
-    drill_fields: [detail*]
   }
 
   measure: total_deliveries {
     type: sum
     sql:case when ${delivered_date} is null then 0 else 1 end + case when ${delivered_date} is null then 1 else 0 end ;;
     drill_fields: [detail*]
-      }
+  }
 
+
+  dimension: trunkcollections {
+    type: yesno
+    sql: ${trunk_collected_time} is not null ;;
+  }
 
   measure: no_of_trunk_collections {
-    type: sum
-    sql: case when ${trunk_collected_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: trunkcollections
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+  dimension: trunkdeliveries {
+    type: yesno
+    sql: ${trunk_collected_time} is not null ;;
   }
 
   measure: no_of_trunk_deliveries {
-    type: sum
-    sql: case when ${trunk_delivered_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: trunkdeliveries
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+  dimension: nofrouted {
+    type: yesno
+    sql: ${routed_date} is not null ;;
   }
 
   measure: no_of_routed {
-    type: sum
-    sql: case when ${routed_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: nofrouted
+      value: "yes"
+    }
     drill_fields: [detail*]
   }
 
 
+  dimension: nofroutescanned {
+    type: yesno
+    sql: ${route_scanned_time} is not null ;;
+  }
+
   measure: no_of_route_scanned {
-    type: sum
-    sql: case when ${route_scanned_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: nofroutescanned
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+  dimension: reconciliations {
+    type: yesno
+    sql: ${reconciled_time} is not null ;;
   }
 
   measure: no_of_reconciliations {
-    type: sum
-    sql: case when ${reconciled_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: reconciliations
+      value: "yes"
+    }
     drill_fields: [detail*]
   }
 
 
+  dimension: nonreconciliations {
+    type: yesno
+    sql: ${not_reconciled_time} is not null ;;
+  }
+
   measure: no_of_non_reconciliations {
-    type: sum
-    sql: case when ${not_reconciled_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: nonreconciliations
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+  dimension: gecodedtimes {
+    type: yesno
+    sql: ${gecoded_time} is not null ;;
   }
 
   measure: no_of_gecodeds {
-    type: sum
-    sql: case when ${gecoded_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: gecodedtimes
+      value: "yes"
+    }
     drill_fields: [detail*]
   }
 
+
+
+  dimension: noofparcelscans {
+    type: yesno
+    sql: ${parcel_scan_time} is not null ;;
+  }
 
   measure: no_of_parcel_scans {
-    type: sum
-    sql: case when ${parcel_scan_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: noofparcelscans
+      value: "yes"
+    }
     drill_fields: [detail*]
   }
 
 
+  dimension: sendtoreroutes {
+    type: yesno
+    sql: ${send_to_reroute_time} is not null ;;
+  }
+
   measure: no_of_send_to_reroutes {
-    type: sum
-    sql: case when ${send_to_reroute_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: sendtoreroutes
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+
+  dimension: delwindow {
+    type: yesno
+    sql: ${del_widnow_future_time} is not null ;;
   }
 
   measure: no_of_del_window_future {
-    type: sum
-    sql: case when ${del_widnow_future_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: delwindow
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+
+  dimension: noaccess {
+    type: yesno
+    sql: ${no_access_time} is not null ;;
   }
 
   measure: no_of_no_access {
-    type: sum
-    sql: case when ${no_access_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: noaccess
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+
+  dimension: incorrectadd {
+    type: yesno
+    sql: ${incorrect_address_time} is not null ;;
   }
 
   measure: no_of_incorrect_address {
-    type: sum
-    sql: case when ${incorrect_address_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: incorrectadd
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+  dimension: helddate {
+    type: yesno
+    sql: ${held_time} is not null ;;
   }
 
   measure: no_of_held {
-    type: sum
-    sql: case when ${held_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: helddate
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+
+  dimension: donotdeliver {
+    type: yesno
+    sql: ${do_not_deliver_time} is not null ;;
   }
 
   measure: no_of_do_not_deliver {
-    type: sum
-    sql: case when ${do_not_deliver_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: donotdeliver
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+
+  dimension: returntoseller {
+    type: yesno
+    sql: ${return_to_seller_time} is not null ;;
   }
 
   measure: no_of_return_to_seller {
-    type: sum
-    sql: case when ${return_to_seller_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: returntoseller
+      value: "yes"
+    }
     drill_fields: [detail*]
+  }
+
+
+  dimension: delrefused {
+    type: yesno
+    sql: ${delivery_refused_time} is not null ;;
   }
 
   measure: no_of_delivery_refused {
-    type: sum
-    sql: case when ${delivery_refused_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: delrefused
+      value: "yes"
+    }
     drill_fields: [detail*]
   }
 
+
+  dimension: incorrectcagescan {
+    type: yesno
+    sql: ${incorrect_cage_scan_time} is not null ;;
+  }
+
   measure: no_of_incorrect_cage_scan {
-    type: sum
-    sql: case when ${incorrect_cage_scan_date} is null then 0 else 1 end ;;
+    type: count
+    filters: {
+      field: incorrectcagescan
+      value: "yes"
+    }
     drill_fields: [detail*]
   }
+
 
 
   measure: count {
