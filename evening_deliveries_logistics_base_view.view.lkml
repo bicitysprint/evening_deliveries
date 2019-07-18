@@ -299,6 +299,12 @@ view: evening_deliveries_logistics_base_view {
       }
 
 
+dimension: citytrak_service {
+  type: string
+  sql: ${TABLE}."CITYTRAK_SERVICE" ;;
+
+}
+
 
   #https://discourse.looker.com/t/discrepancy-when-drilling-into-measures/3464
 
